@@ -111,7 +111,7 @@ This project is [MIT licensed][mitlicense].
 [eslint]:https://eslint.org/
 [airbnb-eslint]:https://www.npmjs.com/package/eslint-config-airbnb
 [mocha]:https://mochajs.org/
-[repository]:https://github.com/GriffinGroupGlobal/backend-challenge
+[repository]:https://github.com/GriffinGroupGlobal/fullstack-challenge
 [mitlicense]:https://en.wikipedia.org/wiki/MIT_License
 [commonmark]:https://spec.commonmark.org/]
 [docker]:https://www.docker.com/
