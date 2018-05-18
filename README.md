@@ -64,8 +64,8 @@ In a microservices application, there are many areas that need to be developed. 
 - Visually appealing UX
 
 Please do not overthink think this or get too wrapped up in making a bullet proof application. This is a  
-comprehensive full stack challenge just building the minimum requirements, so spending a lot of time ensuring production
-level robustness is not required. Rather, we like to see your architectural choices and approach to coding over 
+comprehensive full stack challenge as specified by the minimum requirements. Spending significant amounts of time ensuring production
+level robustness is not required. Rather, we would like to see your architectural choices and approach to coding over 
 production ready, visually appealing features.
 
 # Prerequisites
