@@ -1,4 +1,4 @@
-# Griffin Group Global Back End Development Challenge
+# Griffin Group Global full stack Development Challenge
 
 Hi! Thank you for your interest in [Griffin Group Global][g3website]. Our evaluation processes begins with an open-ended coding challenge that we will discuss during your interview. There is not one correct way to approach this challenge. Rather, we would like to see your approach and your creativity in solving the problem.
 
@@ -7,15 +7,25 @@ We appreciate that any coding challenge represents an investment of your time. W
 If you are successful, then we will set up an in-person interview and use this code as the starting point in our conversation.
 
 # The Challenge
-Griffin Group Global uses a JavaScript-based stack currently, which means [Node.js][nodejs] on the backend. We develop microservices using Node. The challenge would be to write a microservice to Create, Read, Update, Delete and Search a specific data model. This represents a sizeable amount of work and we would not expect you to write the entire microservice. However, you are free to implement as much as you want.
+Griffin Group Global employs several technologies to create a microservice based architecture. We are currently using
+[Nodejs][nodejs] on the backend in our [docker][docker] based microservices. Our UX currently targets the IOS platform
+but as we expand we will move to android based UXs and responsive web applications. 
 
-## Minimum Server-side Challenge Requirements
-We would like a minimum server-side capability. These are:
-- A read route that returns more than one object
-- A read route that returns a specific object when a specific id is specified.
-- A writeup of how to use your code or better yet, a [Mocha][mocha]-based test that shows the functionality working
+Our challenge is to create a web based UI that allows a web UI user to communicate with a non web UI user. The web ui should
+allow the web user to Create and Read individual contacts where the contact name and method of communication are stored.
+The web UI should allow the web user to communicate with a contact using conversations where a conversation is a
+communication chain centered around a subject. The contact should be able to respond on the communication chain and that
+message should appear in the correct conversation.
 
-The basic format for the read route would conform to:
+## Minimum Challenge Requirements
+We would like a minimum  capability. These are:
+- A RESTful create and read mechanism for contacts
+- A RESTful create and read mechanism for conversations.
+- Contacts and Conversation shall be their own independent services (microservice).
+- a Web UI that allows a user to send messages in a conversation to contact, using the contacts preferred communication 
+method.
+
+The basic format for the RESTful route would conform to:
 
 `[VERB] [base]/[type]/[id]{?param1=value1{...&paramn=valuen}}`
 
@@ -30,33 +40,11 @@ where:
 - `value` denotes the value to query for
 - `…` denotes that there can be any number of query parameters
 
-## Data model
-Please base your data model off of this specification for an organization.
-
-Organization:
-
-```js
-{
-  "id": "", // unique identifier
-  "name": "", // name of the organization
-  "addresses": [] // array of locations
-}
-```
-
-Location:
-
-```js
-{
-  "street": "", // The postal address line; contains the house number, apartment number, street name, etc.
-  "city": "", // Name of the city, town, village or other community or delivery center.
-  "state": "", // Sub-division (e.g. state, province, or territory) of the country; abbreviations are accepted; ISO codes are not encouraged since this is a globalized field.
-  "zip": "", // A postal code designating a specific region, district, or zone as defined by the United States Postal Service (USPS).
-  "country": "" // Name of the country (aka nation). ISO-3166 3-letter codes can be used in place of a full country name.
-}
-```
+The communication method that is used to communicate with the contact is of your choosing. We would suggest using email
+and setting headers to align the communication with conversations, but that is up to you.
 
 ## Where to concentrate your effort
-In a server-side microservices approach, there are many areas that need to be developed when creating an API. While implementing the minimum requirements, please feel to implement one or more items in these areas. Please do not feel limited to these areas if you would like to add your take on microservice development.
+In a microservices application, there are many areas that need to be developed. While implementing the minimum requirements, please feel to implement one or more items in these areas. Please do not feel limited to these areas if you would like to add your take on microservice development.
 
 - Error handling
   - Which HTTP Codes should be returned and under which circumstances?
@@ -73,12 +61,16 @@ In a server-side microservices approach, there are many areas that need to be de
 - Database communications security
 - Code quality, such as unit test coverage
 - Style, such as using [ESLint][eslint] and specific rules, such as [Airbnb][airbnb-eslint]
-- Application to showcase using the backend API
+- Visually appealing UX
+
+Please do not overthink think this or get too wrapped up in making a bullet proof application. This is a  
+comprehensive full stack challenge just building the minimum requirements, so spending a lot of time ensuring production
+level robustness is not required. Rather, we like to see your architectural choices and approach to coding over 
+production ready, visually appealing features.
 
 # Prerequisites
 - A basic understanding of source code control, [git][git-scm] is required.
 - You must make your code available via a [GitHub][github] account.
-- All JavaScript shall be written using [ES6][ES6] standards.
 - You should be familiar with creating data APIs.
 
 # Getting Started
@@ -98,7 +90,7 @@ Do not feel as though you must create a public fork of this repository. You are 
 
 # Evaluations
 
-We realize there are many items to look at when creating a microservice. Please do not feel like like you have to do everything. Please do not feel like you must use Node, albeit that is our primary language platform. If you have less security experience, but more search and database experience, then use that to your advantage in the code you write. Give us a heads up by documenting your code to let us know where and why you concentrated on certain
+We realize there are many items to look at when creating an application. Please do not feel like like you have to do everything. Please do not feel like you must use the technologies on our stack. Use your strengths to your advantage in the code you write. Give us a heads up by documenting your code to let us know where and why you concentrated on certain
 items.
 
 As you develop your solution, you may have ideas on other avenues to pursue. Please feel free to include them inline as documented source or as additional [Common Mark][commonmark] compliant notes in your fork.
@@ -121,4 +113,5 @@ This project is [MIT licensed][mitlicense].
 [mocha]:https://mochajs.org/
 [repository]:https://github.com/GriffinGroupGlobal/backend-challenge
 [mitlicense]:https://en.wikipedia.org/wiki/MIT_License
-[commonmark]:https://spec.commonmark.org/
+[commonmark]:https://spec.commonmark.org/]
+[docker]:https://www.docker.com/
