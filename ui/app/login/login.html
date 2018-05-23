@@ -1,0 +1,22 @@
+<div class="centeredForm loginForm">
+    <div class="modal-header">
+        <h4 class="modal-title">Welcome to the G3 Fullstack Challenge</h4>
+    </div>
+    <form role="form" method="post" enctype="multipart/form-data">
+        <div class="modal-body">
+            Username
+            <input autofocus type="text" class="form-control" ng-model="username" placeholder="Username">
+            <BR>
+            Password
+            <input type="password" class="form-control" ng-model="password" placeholder="Password">
+        </div>
+        <div class="modal-footer">
+            <div class="row">
+                <div class="col-xs-8 loginError">{{loginError}}</div>
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="login()">Login</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
