@@ -63,15 +63,18 @@ angular.module('myApp.main', ['ngRoute'])
                 $location.path("/dashboard");
             });
 
-            // $scope.$watch('RestService.courses', function(){
-            //     $timeout(function() {
-            //         // anything you want can go here and will safely be run on the next digest.
-            //         $scope.$apply();
-            //     });
-            // });
             $scope.$watch('RestService.contacts', function(){
                 alert('contacts changed!');
                 console.log('contacts changed!');
+                $timeout(function() {
+                    // anything you want can go here and will safely be run on the next digest.
+                    $scope.$apply();
+                });
+            });
+
+            $scope.$watch('RestService.conversations', function(){
+                alert('conversations changed!');
+                console.log('conversations changed!');
                 $timeout(function() {
                     // anything you want can go here and will safely be run on the next digest.
                     $scope.$apply();
@@ -91,24 +94,21 @@ angular.module('myApp.main', ['ngRoute'])
                         RestService.setJWT(jwtFromStorage);
                     }
                 }
-                // RestService.getGlobalSettings().then(function(data){
-                //     $scope.settings = _.clone(data);
-                //     $timeout(function() {
-                //         // anything you want can go here and will safely be run on the next digest.
-                //         $scope.$apply()
-                //     });
-                // });
-                // RestService.getUsers().then(function(data){
-                //     $timeout(function() {
-                //         // anything you want can go here and will safely be run on the next digest.
-                //         $scope.$apply()
-                //     })});
+
                 RestService.getContacts().then(function(data){
                     $timeout(function() {
                         $scope.contacts =  RestService.contacts;
                         // anything you want can go here and will safely be run on the next digest.
                         $scope.$apply()
                     })});
+
+                RestService.getConversations().then(function(data){
+                    $timeout(function() {
+                        $scope.conversations =  RestService.conversations;
+                        // anything you want can go here and will safely be run on the next digest.
+                        $scope.$apply()
+                    })});
+
             };
 
 

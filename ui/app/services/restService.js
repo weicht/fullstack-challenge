@@ -120,6 +120,33 @@ angular.module('myApp.restService', ['ngCookies'])
                 });
             };
 
+            Service.getConversations = function () {
+                var self = this;
+                return $http.get(BACKEND_BASE_URL+'/conversation')
+                    .then(function (response) {
+//                        response.data.sort( sortByName );
+                        self.conversations = _.clone(response.data);
+                        return response.data;
+                    });
+            };
+
+            Service.deleteConversations = function (conversationIdArray){
+                // use this long format of $http.delete so we can pass a body of conversationIds along as payload
+                return $http({
+                    method: 'DELETE',
+                    url: BACKEND_BASE_URL+'/conversation',
+                    data: conversationIdArray,
+                    headers: {'Content-Type': 'application/json;charset=utf-8'}
+                }).then(function (response) {
+                    return response.data;
+                }).catch(function(response) {
+                    //error
+                    console.error('Delete conversation API error', response.status, response.data);
+                    throw('Failed to delete conversation. Check for log error.');
+                });
+            };
+
+
 
             if (!Service.jwt){
                 var self = this;

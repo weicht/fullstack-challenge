@@ -148,7 +148,7 @@ angular.module('myApp.contacts', ['ngRoute'])
         };
 
         RestService.getContacts().then(function(data){
-//            $scope.contacts = RestService.contacts;
+            $scope.contacts = RestService.contacts;
             $timeout(function() {
                 // anything you want can go here and will safely be run on the next digest.
                 $scope.$apply()
