@@ -1,4 +1,6 @@
 var uuid = require('node-uuid');
+var bcrypt = require('bcrypt');
+const WORK_FACTOR = 10;
 
 
 module.exports = function(app, authN, db) {
@@ -105,7 +107,7 @@ module.exports = function(app, authN, db) {
                     });
                 } else {
                     //not found
-                    res.json({error: "User not found."});
+                    res.json({error: "Contact not found."});
                 }
             }
         });

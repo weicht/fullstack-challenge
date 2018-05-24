@@ -84,7 +84,7 @@ angular.module('myApp.restService', ['ngCookies'])
 
             Service.addContact = function (contact) {
                 var self = this;
-                return $http.post(BACKEND_BASE_URL+'/register', contact)
+                return $http.post(BACKEND_BASE_URL+'/contact', contact)
                     .then(function (response) {
                         //success
                         return response.data;
@@ -97,7 +97,7 @@ angular.module('myApp.restService', ['ngCookies'])
             };
 
             Service.updateContact = function (contact) {
-                return $http.put(BACKEND_BASE_URL+'/register', contact)
+                return $http.put(BACKEND_BASE_URL+'/contact', contact)
                     .then(function (response) {
                         //success
                         return response.data;
