@@ -16,9 +16,9 @@ angular.module('myApp.conversations', ['ngRoute'])
 console.log('Need to display conversation');
 $scope.conversation = {
     messages: [
-        {contactId: '3bf60ebf-3c3a-4a3f-8be0-d7feb202df75', text: 'Can you see this?'},
-        {contactId: '2', text: 'Yes'},
-        {contactId: '3bf60ebf-3c3a-4a3f-8be0-d7feb202df75', text: 'How about now?'}
+        {contactId: '3bf60ebf-3c3a-4a3f-8be0-d7feb202df75', initials: 'CW', text: 'Can you see this?'},
+        {contactId: '2', initials: 'MJ', text: 'Yes'},
+        {contactId: '3bf60ebf-3c3a-4a3f-8be0-d7feb202df75', initials: 'CW', text: 'How about now?'}
     ]
 };
             $scope.gridApi = gridApi;
@@ -140,18 +140,10 @@ $scope.conversation = {
         /* Main starts here... */
 
         $scope.title = 'Conversations';
-
+//        $scope.user = RestService.user;
         $scope.newConversation = $scope.initConversation();
         $scope.conversations = RestService.conversations;
         angular.element('.firstName').trigger('focus');
-
-        $scope.conversation = {
-            messages: [
-                {contactId: '1', text: 'Can you see this?'},
-                {contactId: '2', text: 'Yes'},
-                {contactId: '1', text: 'How about now?'}
-            ]
-        };
 
         $scope.gridOptions = {
             data : 'conversations',

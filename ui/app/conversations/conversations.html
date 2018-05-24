@@ -46,7 +46,7 @@
             <div ng-repeat="msg in conversation.messages">
                 <div class="row row-eq-height">
                     <div ng-class="msg.contactId==user.uid ? 'rightAlign' : 'leftAlign'" class="col-sm-6 col-md-6">
-                        {{msg.text}}
+                        {{msg.initials}} - {{msg.text}}
                     </div>
                 </div>
             </div>
