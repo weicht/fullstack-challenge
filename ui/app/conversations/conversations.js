@@ -48,20 +48,6 @@ console.log('Need to display conversation');
         };
 
         /*
-                var deleteContacts = function (contacts) {
-                    var contactIdArray = [];
-                    angular.forEach(contacts, function(value, key) {
-                        contactIdArray.push(value.uid);
-                    });
-                    RestService.deleteContacts(contactIdArray)
-                        .then(function (data) {
-                            getContacts();
-                        })
-                        .catch(function (data) {
-                            $scope.contactError = data;
-                        });
-                };
-
                 $scope.addContact = function() {
                     $scope.contactError = '';
                     if ( $scope.newContact.email.trim() === '' ||
