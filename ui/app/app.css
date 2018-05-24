@@ -1,5 +1,14 @@
 /* app css stylesheet */
 
+.loginError {
+  color: red;
+  text-align: left;
+}
+
+.footer {
+  text-align: center;
+}
+
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;

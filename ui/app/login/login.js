@@ -23,7 +23,7 @@ angular.module('myApp.login', ['ngRoute'])
                     .then(function (data) {
                         $scope.user = data.data;
                         $rootScope.$emit("loginSuccessful", $scope.user);
-//                        OatRestService.setUser($scope.user);
+                        RestService.setUser($scope.user);
                         localStorage.setItem('g3User', JSON.stringify($scope.user));
                     })
                     .catch(function (data) {

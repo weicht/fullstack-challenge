@@ -80,7 +80,6 @@ MongoClient.connect(MONGO_URL, function (err, database) {
         res.sendFile(__dirname + '/public/index.html');
     });
 
-
     app.listen(port, hostname, function () {
         console.log('listening on ' + hostname + ':' + port);
     });

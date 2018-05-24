@@ -13,8 +13,8 @@ angular.module('myApp.restService', ['ngCookies'])
             };
 
             var sortByName = function(a, b){
-                var nameA = a.name.toUpperCase();
-                var nameB = b.name.toUpperCase();
+                var nameA = a.lastName.toUpperCase();
+                var nameB = b.lastName.toUpperCase();
 
                 if (nameA > nameB) {
                     return 1;
@@ -27,7 +27,8 @@ angular.module('myApp.restService', ['ngCookies'])
             Service.bearer = '';
             // Service.assignments = {};
             // Service.globalSettings = {};
-            // Service.students = [];
+            Service.contacts = [];
+            Service.conversations = [];
             // Service.instructors = [];
             // Service.courses = [];
             // Service.submissions = {};
@@ -69,6 +70,59 @@ angular.module('myApp.restService', ['ngCookies'])
                 $http.defaults.headers.common['Authorization'] = '';
                 localStorage.setItem('g3JWT', self.jwt);
 //                $cookies.remove('oatJWT');
+            };
+
+            Service.getContacts = function () {
+                var self = this;
+                return $http.get(BACKEND_BASE_URL+'/contact')
+                    .then(function (response) {
+                        response.data.sort( sortByName );
+                        self.contacts = _.clone(response.data);
+                        return response.data;
+                    });
+            };
+
+            Service.addContact = function (contact) {
+                var self = this;
+                return $http.post(BACKEND_BASE_URL+'/register', contact)
+                    .then(function (response) {
+                        //success
+                        return response.data;
+                    })
+                    .catch(function(response) {
+                        //error
+                        console.error('Add contact API error', response.status, response.data);
+                        throw('Add contact error: '+response.data);
+                    });
+            };
+
+            Service.updateContact = function (contact) {
+                return $http.put(BACKEND_BASE_URL+'/register', contact)
+                    .then(function (response) {
+                        //success
+                        return response.data;
+                    })
+                    .catch(function(response) {
+                        //error
+                        console.error('Update contact API error', response.status, response.data);
+                        throw('Update contact error: '+response.data);
+                    });
+            };
+
+            Service.deleteContacts = function (contactIdArray){
+                // use this long format of $http.delete so we can pass a body of contactIds along as payload
+                return $http({
+                    method: 'DELETE',
+                    url: BACKEND_BASE_URL+'/contact',
+                    data: contactIdArray,
+                    headers: {'Content-Type': 'application/json;charset=utf-8'}
+                }).then(function (response) {
+                    return response.data;
+                }).catch(function(response) {
+                    //error
+                    console.error('Delete contact API error', response.status, response.data);
+                    throw('Failed to delete contact. Check for log error.');
+                });
             };
 
 
@@ -171,48 +225,7 @@ angular.module('myApp.restService', ['ngCookies'])
                                 });
                         };
 
-                        Service.addInstructor = function (instructor) {
-                            var self = this;
-                            return $http.post(BACKEND_BASE_URL+'/register', instructor)
-                                .then(function (response) {
-                                    //success
-                                    return response.data;
-                                })
-                                .catch(function(response) {
-                                    //error
-                                    console.error('Add Instructor API error', response.status, response.data);
-                                    throw('Add instructor error: '+response.data);
-                                });
-                        };
 
-                        Service.updateInstructor = function (instructor) {
-                            return $http.put(BACKEND_BASE_URL+'/register', instructor)
-                                .then(function (response) {
-                                    //success
-                                    return response.data;
-                                })
-                                .catch(function(response) {
-                                    //error
-                                    console.error('Update Instructor API error', response.status, response.data);
-                                    throw('Update instructor error: '+response.data);
-                                });
-                        };
-
-                        Service.deleteInstructors = function (instructorIdArray){
-                            // use this long format of $http.delete so we can pass a body of studentIds along as payload
-                            return $http({
-                                method: 'DELETE',
-                                url: BACKEND_BASE_URL+'/instructors',
-                                data: instructorIdArray,
-                                headers: {'Content-Type': 'application/json;charset=utf-8'}
-                            }).then(function (response) {
-                                return response.data;
-                            }).catch(function(response) {
-                                //error
-                                console.error('Delete Instructors API error', response.status, response.data);
-                                throw('Failed to delete instructors. Check for log error.');
-                            });
-                        };
 
                         Service.saveNewCourse = function (newCourse) {
                             var self = this;

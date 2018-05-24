@@ -38,11 +38,11 @@
             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               Hello, <span class="username">{{user.fullName}}</span> <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li ng-show="user.role==='admin'"><a href="" data-toggle="modal" data-target="#settingsModal" ng-click="openSettings()">Global Settings</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#!/courses">Courses</a></li>
-              <li ng-show="user.role==='admin'"><a href="#!/instructors">Instructors</a></li>
-              <li ng-show="user.role==='admin' || user.role==='instructor'"><a href="#!/students">Students</a></li>
+              <!--<li ng-show="user.role==='admin'"><a href="" data-toggle="modal" data-target="#settingsModal" ng-click="openSettings()">Global Settings</a></li>-->
+              <!--<li role="separator" class="divider"></li>-->
+              <li><a href="#!/contacts">Contacts</a></li>
+              <!--<li ng-show="user.role==='admin'"><a href="#!/instructors">Instructors</a></li>-->
+              <!--<li ng-show="user.role==='admin' || user.role==='instructor'"><a href="#!/students">Students</a></li>-->
               <li role="separator" class="divider"></li>
               <li><a ng-click="logout()">Logout</a></li>
             </ul>
@@ -54,10 +54,10 @@
   </nav>
 
 
-  <ul class="menu">
-    <li><a href="#!/login">login</a></li>
-    <li><a href="#!/dashboard">dashboard</a></li>
-  </ul>
+  <!--<ul class="menu">-->
+    <!--<li><a href="#!/login">login</a></li>-->
+    <!--<li><a href="#!/dashboard">dashboard</a></li>-->
+  <!--</ul>-->
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -87,6 +87,7 @@
   <script src="main/main.js"></script>
   <script src="login/login.js"></script>
   <script src="dashboard/dashboard.js"></script>
+  <script src="contacts/contacts.js"></script>
   <script src="services/restService.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>

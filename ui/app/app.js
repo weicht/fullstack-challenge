@@ -7,6 +7,7 @@ angular.module('myApp', [
     'myApp.main',
     'myApp.login',
     'myApp.dashboard',
+    'myApp.contacts',
     'myApp.restService',
     'ui.bootstrap',
     'ui.grid',

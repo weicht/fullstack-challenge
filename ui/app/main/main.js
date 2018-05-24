@@ -63,7 +63,15 @@ angular.module('myApp.main', ['ngRoute'])
                 $location.path("/dashboard");
             });
 
-            $scope.$watch('RestService.courses', function(){
+            // $scope.$watch('RestService.courses', function(){
+            //     $timeout(function() {
+            //         // anything you want can go here and will safely be run on the next digest.
+            //         $scope.$apply();
+            //     });
+            // });
+            $scope.$watch('RestService.contacts', function(){
+                alert('contacts changed!');
+                console.log('contacts changed!');
                 $timeout(function() {
                     // anything you want can go here and will safely be run on the next digest.
                     $scope.$apply();
@@ -95,6 +103,12 @@ angular.module('myApp.main', ['ngRoute'])
                 //         // anything you want can go here and will safely be run on the next digest.
                 //         $scope.$apply()
                 //     })});
+                RestService.getContacts().then(function(data){
+                    $timeout(function() {
+                        $scope.contacts =  RestService.contacts;
+                        // anything you want can go here and will safely be run on the next digest.
+                        $scope.$apply()
+                    })});
             };
 
 
