@@ -14,6 +14,13 @@ angular.module('myApp.conversations', ['ngRoute'])
 
         var rowSelected = function (gridApi) {
 console.log('Need to display conversation');
+$scope.conversation = {
+    messages: [
+        {contactId: '3bf60ebf-3c3a-4a3f-8be0-d7feb202df75', text: 'Can you see this?'},
+        {contactId: '2', text: 'Yes'},
+        {contactId: '3bf60ebf-3c3a-4a3f-8be0-d7feb202df75', text: 'How about now?'}
+    ]
+};
             $scope.gridApi = gridApi;
             gridApi.selection.on.rowSelectionChanged($scope, function (row) {
                 $scope.newConversation = row.entity;
@@ -95,20 +102,20 @@ console.log('Need to display conversation');
                     }
                 };
 
-                $scope.initContact = function() {
-                    return {
-                        firstName: '',
-                        lastName: '',
-                        email: '',
-                        password: ''
-                    }
-                };
-
         */
+
+        $scope.initConversation = function() {
+            return {
+                subject: '',
+                recipients: RestService.contacts,
+                lastUpdated: 'need_last_updated_to_be_now',
+                messages: []
+            }
+        };
 
         $scope.reset = function() {
             $scope.conversationError = '';
-//            $scope.newConversation = $scope.initConversation();
+            $scope.newConversation = $scope.initConversation();
             angular.element('.firstName').trigger('focus');
         };
 
@@ -134,9 +141,17 @@ console.log('Need to display conversation');
 
         $scope.title = 'Conversations';
 
-        // $scope.newContact = $scope.initContact();
+        $scope.newConversation = $scope.initConversation();
         $scope.conversations = RestService.conversations;
         angular.element('.firstName').trigger('focus');
+
+        $scope.conversation = {
+            messages: [
+                {contactId: '1', text: 'Can you see this?'},
+                {contactId: '2', text: 'Yes'},
+                {contactId: '1', text: 'How about now?'}
+            ]
+        };
 
         $scope.gridOptions = {
             data : 'conversations',

@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser= require('body-parser');
 const cors = require('express-cors');
 const app = express();
+const jwt = require("jsonwebtoken");
 const MongoClient = require('mongodb').MongoClient;
 
 //require our custom routes
@@ -12,7 +13,7 @@ const authentication = require('./routes/authentication');
 const hostname = 'localhost';
 const port = process.env.NODE_PORT || 4000;
 const MONGO_URL = 'mongodb://localhost/g3';
-//const SECRET = "thisIsASecret";
+const SECRET = "thisIsASecret";
 
 
 //Need these for posting form data and if you want images of a big size
@@ -30,8 +31,7 @@ app.use(function(req, res, next) {
 
 //Function to ensure the JWT passed in is valid
 var ensureAuthN = function(req, res, next){
-   next();
-   /*
+//   next();
         //TODO: verify token password against db
         // expiry date is handled by jwt.verify()
         var bearerHeader = req.headers["authorization"];
@@ -60,7 +60,6 @@ var ensureAuthN = function(req, res, next){
             res.sendStatus(403);
     //        next();
         }
-    */
 };
 
 

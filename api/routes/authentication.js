@@ -55,5 +55,44 @@ module.exports = function (app, authN, db) {
         });
     });
 
+
+
+    //Update an existing contact
+    app.put('/register', authN, function (req, res) {
+        //TODO: Need some sort of role/privilege check
+        var decoded = jwt.decode(req.token, {json: true, complete: true});
+        // if (decoded.payload.data.role && (decoded.payload.data.role === 'admin' || decoded.payload.data.role === 'instructor')) {
+            var updatedUser = req.body;
+            db.collection('contacts').findOne({uid: updatedUser.uid}, function (err, user) {
+                if (err) {
+                    return console.log(err)
+                } else {
+                    if (user) {
+                        user.firstName = updatedUser.firstName;
+                        user.lastName = updatedUser.lastName;
+                        user.email = updatedUser.email;
+                        // if(updatedUser.updatePassword){
+                        //     console.log('Updating password');
+                        //     user.password = bcrypt.hashSync(updatedUser.password, WORK_FACTOR);
+                        // }
+                        db.collection('contacts').save(user, function (err, result) {
+                            if (err) {
+                                return console.log(err)
+                            }
+                            res.json(user);
+                        });
+                    } else {
+                        //not found
+                        res.json({error: "User not found."});
+                    }
+                }
+            });
+
+        // } else {
+        //     //user not an Admin nor Instructor, so can not create users.
+        //     res.json({error: "Insufficient privileges to Register new users."});
+        // }
+    });
+
     return app;
 };

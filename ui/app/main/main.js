@@ -9,35 +9,6 @@ angular.module('myApp.main', ['ngRoute'])
     .controller('MainCtrl', ['$scope', '$rootScope', '$http', '$timeout', '$uibModal', '$location', 'RestService', '$cookies',
         function($scope, $rootScope, $http, $timeout, $uibModal, $location, RestService, $cookies) {
 
-            // $scope.saveSettings = function() {
-            //     var settings = $scope.editSettings;
-            //     RestService.setGlobalSettings(settings).then(function(data){
-            //         $scope.settings = _.clone(settings);
-            //         $scope.settingsModal.close();
-            //         $timeout(function() {
-            //             // anything you want can go here and will safely be run on the next digest.
-            //             $scope.$apply()
-            //         });
-            //     });
-            // };
-            //
-            // $scope.openSettings = function() {
-            //     $scope.editSettings = _.clone($scope.settings);
-            //     $scope.settingsModal = $uibModal.open({
-            //         templateUrl: 'modals/settings.html',
-            //         scope: $scope
-            //     });
-            // };
-            //
-            // $scope.closeSettings = function() {
-            //     $scope.settingsModal.close();
-            // };
-            //
-            // $scope.search = function() {
-            //     console.log('Searching for: '+$scope.searchText);
-            // };
-
-
             $scope.logout = function() {
                 //Logout and redirect to Home page
                 RestService.logout();
@@ -60,11 +31,10 @@ angular.module('myApp.main', ['ngRoute'])
                 $scope.user = user;
                 RestService.setUser(user);
                 init();
-                $location.path("/dashboard");
+                $location.path("/conversations");
             });
 
             $scope.$watch('RestService.contacts', function(){
-                alert('contacts changed!');
                 console.log('contacts changed!');
                 $timeout(function() {
                     // anything you want can go here and will safely be run on the next digest.
@@ -73,7 +43,6 @@ angular.module('myApp.main', ['ngRoute'])
             });
 
             $scope.$watch('RestService.conversations', function(){
-                alert('conversations changed!');
                 console.log('conversations changed!');
                 $timeout(function() {
                     // anything you want can go here and will safely be run on the next digest.
@@ -114,8 +83,6 @@ angular.module('myApp.main', ['ngRoute'])
 
 
             /* Main starts here */
-            // $scope.searchText = '';
-            // $scope.settings = {};
             init();
 
             if(!$scope.user){
