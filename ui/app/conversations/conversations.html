@@ -1,0 +1,64 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <span class="title">{{title}}</span>
+        </div>
+    </div>
+<!--
+    <!--<form role="form" method="post" enctype="multipart/form-data">-->
+        <!--<div class="row">-->
+            <!--<div class="col-sm-6 col-md-6">-->
+                <!--<input type="text" class="form-control withShadow firstName" ng-model="newContact.firstName" placeholder="First Name" autofocus>-->
+            <!--</div>-->
+            <!--<div class="col-sm-6 col-md-6">-->
+                <!--<input type="text" class="form-control withShadow" ng-model="newContact.lastName" placeholder="Last Name">-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<BR>-->
+        <!--<div class="row">-->
+            <!--<div class="col-sm-6 col-md-6">-->
+                <!--<input type="text" class="form-control withShadow" ng-model="newContact.email" placeholder="Email">-->
+            <!--</div>-->
+            <!--<div class="col-sm-6 col-md-6">-->
+                <!--<input type="text" class="form-control withShadow" ng-model="newContact.password">-->
+                <!--<input type="checkbox" ng-model="newContact.updatePassword">-->
+                <!--<span style="font-size:10px;">Update Password</span>-->
+                <!--&lt;!&ndash;<span ng-show="showPassword">&ndash;&gt;-->
+                <!--&lt;!&ndash;<input type="text" class="form-control withShadow" ng-model="newInstructor.password" placeholder="Password123">&ndash;&gt;-->
+                <!--&lt;!&ndash;<span ng-show=showPassword ng-click="showPassword=!showPassword" style="font-size:10px;">&nbsp; Hide password</span>&ndash;&gt;-->
+                <!--&lt;!&ndash;</span>&ndash;&gt;-->
+                <!--&lt;!&ndash;<span ng-show="!showPassword">&ndash;&gt;-->
+                <!--&lt;!&ndash;<input type="password" class="form-control withShadow" ng-model="newInstructor.password" placeholder="Password123">&ndash;&gt;-->
+                <!--&lt;!&ndash;<span ng-show=!showPassword ng-click="showPassword=!showPassword" style="font-size:10px;">&nbsp; Show password</span>&ndash;&gt;-->
+                <!--&lt;!&ndash;</span>&ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<BR>-->
+        <!--<div class="row">-->
+            <!--<div class="col-sm-9 col-md-9 loginError">{{contactError}}</div>-->
+            <!--<div class="col-sm-3 col-md-3">-->
+                <!--<button type="submit" class="btn btn-primary" ng-click="addContact()">Add</button>-->
+                <!--<button type="submit" class="btn btn-primary" ng-click="updateContact()">Update</button>-->
+                <!--<button type="submit" class="btn btn-primary" ng-click="reset()">Clear</button>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</form>-->
+    <!--<BR>-->
+
+    <div>
+        Total: {{conversations.length}}
+        <div ui-grid="gridOptions" class="studentsGrid" ui-grid-selection></div>
+        <BR>
+        <div class="row">
+            <div class="col-sm-9 col-md-9 loginError"></div>
+            <div class="col-sm-2 col-md-2">
+                <button class="btn btn-primary" ng-click="deleteSelected()" ng-show="gridApi.selection.getSelectedRows().length">Delete Selected</button>
+            </div>
+            <div class="col-sm-1 col-md-1">
+                <button class="btn btn-primary" ng-click="clearSelected()">Clear</button>
+            </div>
+        </div>
+    </div>
+
+</div>

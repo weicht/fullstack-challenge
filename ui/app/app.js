@@ -6,7 +6,7 @@ angular.module('myApp', [
     'ngCookies',
     'myApp.main',
     'myApp.login',
-    'myApp.dashboard',
+    'myApp.conversations',
     'myApp.contacts',
     'myApp.restService',
     'ui.bootstrap',
