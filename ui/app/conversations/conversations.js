@@ -54,56 +54,6 @@ $scope.conversation = {
                 });
         };
 
-        /*
-                $scope.addContact = function() {
-                    $scope.contactError = '';
-                    if ( $scope.newContact.email.trim() === '' ||
-                        $scope.newContact.firstName.trim() === '' ||
-                        $scope.newContact.lastName.trim() === ''){
-                        $scope.contactError = 'First name, Last name, and Email fields are Mandatory.';
-                    } else {
-                        RestService.addContact($scope.newContact)
-                            .then(function (data) {
-                                $scope.contacts.push(data);
-                                //reset form on screen
-                                $scope.reset();
-                                $timeout(function() {
-                                    // anything you want can go here and will safely be run on the next digest.
-                                    $scope.$apply()
-                                });
-                            })
-                            .catch(function (data) {
-                                $scope.contactError = data;
-                            });
-                    }
-                };
-
-                $scope.updateContact = function() {
-                    $scope.contactError = '';
-                    if ( $scope.newContact.email.trim() === '' ||
-                        $scope.newContact.firstName.trim() === '' ||
-                        $scope.newContact.lastName.trim() === ''){
-                        $scope.contactError = 'First name, Last name, and Email fields are Mandatory.';
-                    } else {
-                        RestService.updateContact($scope.newContact)
-                            .then(function (data) {
-                                //getInstructors will refresh the list of instructors for us
-                                getContacts();
-                                //reset form on screen
-                                $scope.reset();
-                                $timeout(function() {
-                                    // anything you want can go here and will safely be run on the next digest.
-                                    $scope.$apply()
-                                });
-                            })
-                            .catch(function (data) {
-                                $scope.contactError = data;
-                            });
-                    }
-                };
-
-        */
-
         $scope.initConversation = function() {
             return {
                 subject: '',

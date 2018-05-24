@@ -13,7 +13,6 @@ angular.module('myApp.contacts', ['ngRoute'])
     .controller('ContactsCtrl', ['$scope', '$http', '$timeout', 'RestService', function($scope, $http, $timeout, RestService) {
 
         var getContacts = function () {
-            //reload instructors from the server
             RestService.getContacts().then(function(data){
                 $scope.contacts = RestService.contacts;
                 $timeout(function() {
@@ -78,7 +77,6 @@ angular.module('myApp.contacts', ['ngRoute'])
             } else {
                 RestService.updateContact($scope.newContact)
                     .then(function (data) {
-                        //getInstructors will refresh the list of instructors for us
                         getContacts();
                         //reset form on screen
                         $scope.reset();
