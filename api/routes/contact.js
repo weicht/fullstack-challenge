@@ -149,7 +149,5 @@ module.exports = function(app, authN, db) {
         // }
     });
 
-
-
     return app;
 };
